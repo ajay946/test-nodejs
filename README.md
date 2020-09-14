@@ -11,13 +11,15 @@
 
 
 8. created a docker file within the same project directory.
-8a. FROM node:7					official node image
-8b. WORKDIR /app   				set working directory in container to /app
-8c. COPY package.json /app 			will copy package.json to the /app directory and the perform the npm install so that it doesn't dependencies again if changes are made to package,json file
-8d. RUN npm install 				to install dependies
-8e. COPY . /app					to copy application to /app directory
-9.  CMD node index.js				to execute node index.js when the docker image is created.
-10. expose 8081 				to expose port 8081 to the outside world.
+    FROM node:7					official node image
+    WORKDIR /app   				set working directory in container to /app
+    COPY package.json /app 			will copy package.json to the /app directory and the perform the npm install so that it doesn't dependencies again if changes are         made to package,json file
+    RUN npm install 				to install dependies
+    COPY . /app					to copy application to /app directory
+    CMD node index.js				to execute node index.js when the docker image is created.
+    EXPOSE 8081 				to expose port 8081 to the outside world.
+    
+    
 11. docker build -t hello-world . 		to build the docker file 
 12. docker run -p 8081:8081 hello-world 	to launch the docker image
 13. docker build -t ajay946/hello-world . 	to build image again with docker hub credentials
